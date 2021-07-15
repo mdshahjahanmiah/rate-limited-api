@@ -33,6 +33,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agoda.HotelManagement.Valid
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agoda.HotelManagement.Common", "src\domain\common\Agoda.HotelManagement.Common\Agoda.HotelManagement.Common.csproj", "{CE723E8B-18F4-4B38-9843-F95CA9DAF52B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agoda.HotelManagement.Domain", "src\domain\core\Agoda.HotelManagement.Domain\Agoda.HotelManagement.Domain.csproj", "{71CF1242-9EF9-4A1F-A1B5-88B7C7A4ED21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agoda.HotelManagement.Entities", "src\domain\core\Agoda.HotelManagement.Entities\Agoda.HotelManagement.Entities.csproj", "{99A4C3EB-BF5B-4227-822B-834485C93664}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,14 @@ Global
 		{CE723E8B-18F4-4B38-9843-F95CA9DAF52B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE723E8B-18F4-4B38-9843-F95CA9DAF52B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE723E8B-18F4-4B38-9843-F95CA9DAF52B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71CF1242-9EF9-4A1F-A1B5-88B7C7A4ED21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71CF1242-9EF9-4A1F-A1B5-88B7C7A4ED21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71CF1242-9EF9-4A1F-A1B5-88B7C7A4ED21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71CF1242-9EF9-4A1F-A1B5-88B7C7A4ED21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99A4C3EB-BF5B-4227-822B-834485C93664}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99A4C3EB-BF5B-4227-822B-834485C93664}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99A4C3EB-BF5B-4227-822B-834485C93664}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99A4C3EB-BF5B-4227-822B-834485C93664}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,6 +93,8 @@ Global
 		{565573DB-894D-453C-9AF3-C941442F2E1A} = {20C8A40C-6899-47D8-9B26-39E54B6F3B35}
 		{95FE44DE-640D-4F7A-9B31-3E77D5D4E948} = {BDAA00E1-5754-4249-BEA2-B599E387E464}
 		{CE723E8B-18F4-4B38-9843-F95CA9DAF52B} = {BDAA00E1-5754-4249-BEA2-B599E387E464}
+		{71CF1242-9EF9-4A1F-A1B5-88B7C7A4ED21} = {12EE8ED5-689C-4BDD-887F-2D564B8D04BF}
+		{99A4C3EB-BF5B-4227-822B-834485C93664} = {12EE8ED5-689C-4BDD-887F-2D564B8D04BF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E3554235-78CF-4902-9BE1-32FF3D7C29D4}

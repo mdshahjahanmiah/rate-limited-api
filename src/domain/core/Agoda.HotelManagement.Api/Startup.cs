@@ -1,3 +1,4 @@
+using Agoda.HotelManagement.Validator;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,6 +30,7 @@ namespace Agoda.HotelManagement.Api
             services.AddControllers();
             services.AddApiVersioning();
             ConfigureSwaggerServices(services);
+            ConfigureTransientServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,6 +74,11 @@ namespace Agoda.HotelManagement.Api
                     });
 
             });
+        }
+
+        private void ConfigureTransientServices(IServiceCollection services)
+        {
+            services.AddTransient(typeof(IValidator), typeof(PayloadValidator));
         }
     }
 }

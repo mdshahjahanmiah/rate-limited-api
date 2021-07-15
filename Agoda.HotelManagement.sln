@@ -1,0 +1,74 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C7BF93B7-DBD9-47B1-829D-36E713BBF6EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BD454C41-C159-4824-B575-C919A6E98D79}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "domain", "domain", "{4295C57C-232A-48FB-A9D7-8E13B702058B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{D4F987D6-9AF0-4B1C-BC48-C5F03A36A180}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{BDAA00E1-5754-4249-BEA2-B599E387E464}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{12EE8ED5-689C-4BDD-887F-2D564B8D04BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "middleware", "middleware", "{D71B7F57-73D8-4FCE-A51C-6857AB25A381}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agoda.RateLimiter", "src\domain\middleware\Agoda.RateLimiter\Agoda.RateLimiter.csproj", "{175F744C-D06B-4B6D-B082-5E730857AA64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agoda.HotelManagement.Api", "src\domain\core\Agoda.HotelManagement.Api\Agoda.HotelManagement.Api.csproj", "{1D5B5359-FE22-4F7B-B9A9-B1B65E04A72D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agoda.HotelManagement.Infrastructure", "src\Infrastructure\Agoda.HotelManagement.Infrastructure\Agoda.HotelManagement.Infrastructure.csproj", "{0B1B5352-CBC1-4510-9481-EDB8E7DF266C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unit", "unit", "{20C8A40C-6899-47D8-9B26-39E54B6F3B35}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "integration", "integration", "{22131201-CE58-4CCA-8C6F-A0CA3ABCE8C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agoda.HotelManagement.UnitTest", "tests\unit\Agoda.HotelManagement.UnitTest\Agoda.HotelManagement.UnitTest.csproj", "{565573DB-894D-453C-9AF3-C941442F2E1A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{175F744C-D06B-4B6D-B082-5E730857AA64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{175F744C-D06B-4B6D-B082-5E730857AA64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{175F744C-D06B-4B6D-B082-5E730857AA64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{175F744C-D06B-4B6D-B082-5E730857AA64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D5B5359-FE22-4F7B-B9A9-B1B65E04A72D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D5B5359-FE22-4F7B-B9A9-B1B65E04A72D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D5B5359-FE22-4F7B-B9A9-B1B65E04A72D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D5B5359-FE22-4F7B-B9A9-B1B65E04A72D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B1B5352-CBC1-4510-9481-EDB8E7DF266C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B1B5352-CBC1-4510-9481-EDB8E7DF266C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B1B5352-CBC1-4510-9481-EDB8E7DF266C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B1B5352-CBC1-4510-9481-EDB8E7DF266C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{565573DB-894D-453C-9AF3-C941442F2E1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{565573DB-894D-453C-9AF3-C941442F2E1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{565573DB-894D-453C-9AF3-C941442F2E1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{565573DB-894D-453C-9AF3-C941442F2E1A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4295C57C-232A-48FB-A9D7-8E13B702058B} = {C7BF93B7-DBD9-47B1-829D-36E713BBF6EC}
+		{D4F987D6-9AF0-4B1C-BC48-C5F03A36A180} = {C7BF93B7-DBD9-47B1-829D-36E713BBF6EC}
+		{BDAA00E1-5754-4249-BEA2-B599E387E464} = {4295C57C-232A-48FB-A9D7-8E13B702058B}
+		{12EE8ED5-689C-4BDD-887F-2D564B8D04BF} = {4295C57C-232A-48FB-A9D7-8E13B702058B}
+		{D71B7F57-73D8-4FCE-A51C-6857AB25A381} = {4295C57C-232A-48FB-A9D7-8E13B702058B}
+		{175F744C-D06B-4B6D-B082-5E730857AA64} = {D71B7F57-73D8-4FCE-A51C-6857AB25A381}
+		{1D5B5359-FE22-4F7B-B9A9-B1B65E04A72D} = {12EE8ED5-689C-4BDD-887F-2D564B8D04BF}
+		{0B1B5352-CBC1-4510-9481-EDB8E7DF266C} = {D4F987D6-9AF0-4B1C-BC48-C5F03A36A180}
+		{20C8A40C-6899-47D8-9B26-39E54B6F3B35} = {BD454C41-C159-4824-B575-C919A6E98D79}
+		{22131201-CE58-4CCA-8C6F-A0CA3ABCE8C1} = {BD454C41-C159-4824-B575-C919A6E98D79}
+		{565573DB-894D-453C-9AF3-C941442F2E1A} = {20C8A40C-6899-47D8-9B26-39E54B6F3B35}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3554235-78CF-4902-9BE1-32FF3D7C29D4}
+	EndGlobalSection
+EndGlobal

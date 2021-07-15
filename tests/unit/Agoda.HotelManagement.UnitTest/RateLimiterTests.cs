@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Agoda.HotelManagement.UnitTest
 {
-    public class SlidingWindowTests
+    public class RateLimiterTests
     {
         private readonly Mock<ITimestamp> _mockTimestamp = new Mock<ITimestamp>();
 

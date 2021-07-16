@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Infrastructure\Agoda.HotelManagement.Infrastructure\Agoda.HotelManagement.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\common\Agoda.HotelManagement.Common\Agoda.HotelManagement.Common.csproj" />
+    <ProjectReference Include="..\..\common\Agoda.HotelManagement.DataObjects\Agoda.HotelManagement.DataObjects.csproj" />
+    <ProjectReference Include="..\Agoda.HotelManagement.Entities\Agoda.HotelManagement.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

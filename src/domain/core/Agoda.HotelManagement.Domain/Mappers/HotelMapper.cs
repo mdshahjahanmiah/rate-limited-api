@@ -1,7 +1,7 @@
 ﻿using Agoda.HotelManagement.Entities;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace Agoda.HotelManagement.Domain.Mappers
 {
@@ -18,4 +18,14 @@ namespace Agoda.HotelManagement.Domain.Mappers
             };
         }
     }
+
+    public static class Test
+    {
+        public static IOrderedQueryable<TSource> OrderByWithDirection<TSource, TKey>(this IQueryable<TSource> source, Expression<Func<TSource, TKey>> keySelector, bool descending)
+        {
+            var result = descending? source.OrderByDescending(keySelector) : source.OrderBy(keySelector);
+            return result;
+        }
+    }
+    
 }

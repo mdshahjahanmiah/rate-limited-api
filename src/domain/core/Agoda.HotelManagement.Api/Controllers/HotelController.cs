@@ -20,24 +20,22 @@ namespace Agoda.HotelManagement.Api.Controllers
         }
 
         [HttpGet("city/{name}")]
-        public IActionResult GetHotelsByCity(string name, [FromQuery] string sortByPrice = "ASC")
+        public IActionResult GetHotelsByCity(string name, [FromQuery] string sortByPrice = null)
         {
             var (statusCode, errorResult) = _payloadValidator.PayloadValidator(PayloadType.City, name, string.Empty);
             if (statusCode != StatusCodes.Status200OK) return StatusCode(statusCode, errorResult);
 
             var result = _hotelManager.GetByCity(name, sortByPrice);
-
             return StatusCode(StatusCodes.Status200OK, result);
         }
 
         [HttpGet("room/{type}")]
-        public IActionResult GetHotelsByRoom(string type, [FromQuery] string sortByPrice = "ASC")
+        public IActionResult GetHotelsByRoom(string type, [FromQuery] string sortByPrice = null)
         {
             var (statusCode, errorResult) = _payloadValidator.PayloadValidator(PayloadType.Room, string.Empty, type);
             if (statusCode != StatusCodes.Status200OK) return StatusCode(statusCode, errorResult);
 
             var result = _hotelManager.GetByRoom(type, sortByPrice);
-
             return StatusCode(StatusCodes.Status200OK, result);
         }
     }

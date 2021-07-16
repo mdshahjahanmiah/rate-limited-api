@@ -25,5 +25,8 @@ namespace Agoda.HotelManagement.Domain.Services
         {
             return _hotelManagementRepository.GetByRoom(type, sortByPrice);
         }
+
+
     }
+    
 }

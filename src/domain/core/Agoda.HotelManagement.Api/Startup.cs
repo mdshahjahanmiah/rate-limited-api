@@ -44,6 +44,7 @@ namespace Agoda.HotelManagement.Api
             ConfigureSwaggerServices(services);
             ConfigureSingletonServices(services);
             ConfigureTransientServices(services);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
         }
 
         private void HotelManagementDependencies(IServiceCollection services, AppSettings settings)

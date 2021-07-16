@@ -1,4 +1,5 @@
-﻿using Agoda.HotelManagement.Common.Enums;
+﻿using Agoda.HotelManagement.Api.Filters;
+using Agoda.HotelManagement.Common.Enums;
 using Agoda.HotelManagement.Domain.Interfaces;
 using Agoda.HotelManagement.Validator;
 using Microsoft.AspNetCore.Http;
@@ -9,6 +10,7 @@ namespace Agoda.HotelManagement.Api.Controllers
     [ApiVersion("1")]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
+    [GlobalExceptionFilter]
     public class HotelController : ControllerBase
     {
         private readonly IValidator _payloadValidator;

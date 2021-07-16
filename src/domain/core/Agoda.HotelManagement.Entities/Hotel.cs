@@ -11,6 +11,6 @@ namespace Agoda.HotelManagement.Entities
         public int HotelId { get; set; }
         public string City { get; set; }
         public string Room { get; set; }
-        public decimal Price { get; set; }
+        public int Price { get; set; }
     }
 }

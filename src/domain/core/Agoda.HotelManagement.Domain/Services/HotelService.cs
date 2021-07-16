@@ -1,5 +1,6 @@
 ﻿using Agoda.HotelManagement.Domain.Interfaces;
 using Agoda.HotelManagement.Entities;
+using Agoda.HotelManagement.Infrastructure.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,14 +10,20 @@ namespace Agoda.HotelManagement.Domain.Services
 {
     public class HotelService : IHotelService
     {
+        private readonly IHotelManagementRepository _hotelManagementRepository;
+        public HotelService(IHotelManagementRepository hotelManagementRepository)
+        {
+            _hotelManagementRepository = hotelManagementRepository;
+        }
+       
         public IQueryable<Hotel> GetByCity(string name, string sortByPrice)
         {
-            throw new NotImplementedException();
+            return _hotelManagementRepository.GetByCity(name, sortByPrice);
         }
 
         public IQueryable<Hotel> GetByRoom(string type, string sortByPrice)
         {
-            throw new NotImplementedException();
+            return _hotelManagementRepository.GetByRoom(type, sortByPrice);
         }
     }
 }

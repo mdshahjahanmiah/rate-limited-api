@@ -15,12 +15,12 @@ namespace Agoda.HotelManagement.Infrastructure.Base
             _unitOfWork = unitOfWork;
         }
         
-        public IEnumerable<T> Get()
+        public IQueryable<T> Get()
         {
             return _unitOfWork.QueriesContext.Set<T>().AsQueryable<T>();
         }
 
-        public IEnumerable<T> Get(Expression<Func<T, bool>> predicate)
+        public IQueryable<T> Get(Expression<Func<T, bool>> predicate)
         {
             return _unitOfWork.QueriesContext.Set<T>().Where(predicate).AsQueryable<T>();
         }

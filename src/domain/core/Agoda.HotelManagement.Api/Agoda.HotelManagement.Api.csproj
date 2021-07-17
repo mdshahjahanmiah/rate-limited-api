@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Infrastructure\Agoda.HotelManagement.Infrastructure\Agoda.HotelManagement.Infrastructure.csproj" />
     <ProjectReference Include="..\..\common\Agoda.HotelManagement.Validator\Agoda.HotelManagement.Validator.csproj" />
+    <ProjectReference Include="..\..\middleware\Agoda.RateLimiter\Agoda.RateLimiter.csproj" />
     <ProjectReference Include="..\Agoda.HotelManagement.Domain\Agoda.HotelManagement.Domain.csproj" />
   </ItemGroup>
 

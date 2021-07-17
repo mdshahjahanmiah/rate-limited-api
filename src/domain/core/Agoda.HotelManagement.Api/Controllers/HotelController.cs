@@ -2,8 +2,10 @@
 using Agoda.HotelManagement.Common.Enums;
 using Agoda.HotelManagement.Domain.Interfaces;
 using Agoda.HotelManagement.Validator;
+using Agoda.RateLimiter.Filters;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace Agoda.HotelManagement.Api.Controllers
 {
@@ -22,6 +24,7 @@ namespace Agoda.HotelManagement.Api.Controllers
         }
 
         [HttpGet("city/{name}")]
+        [ServiceFilter(typeof(RateLimitFilter))]
         public IActionResult GetHotelsByCity(string name, [FromQuery] string sortByPrice = null)
         {
             var (statusCode, errorResult) = _payloadValidator.PayloadValidator(PayloadType.City, name, string.Empty);
@@ -32,6 +35,7 @@ namespace Agoda.HotelManagement.Api.Controllers
         }
 
         [HttpGet("room/{type}")]
+        [ServiceFilter(typeof(RateLimitFilter))]
         public IActionResult GetHotelsByRoom(string type, [FromQuery] string sortByPrice = null)
         {
             var (statusCode, errorResult) = _payloadValidator.PayloadValidator(PayloadType.Room, string.Empty, type);

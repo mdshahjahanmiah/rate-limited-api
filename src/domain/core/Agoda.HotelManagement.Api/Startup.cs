@@ -6,20 +6,15 @@ using Agoda.HotelManagement.Infrastructure.Base;
 using Agoda.HotelManagement.Infrastructure.DbContext;
 using Agoda.HotelManagement.Infrastructure.Domain;
 using Agoda.HotelManagement.Validator;
+using Agoda.RateLimiter.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Agoda.HotelManagement.Api
 {
@@ -38,13 +33,12 @@ namespace Agoda.HotelManagement.Api
         {
             services.AddControllers();
             services.AddApiVersioning();
+            services.AddRateLimit();
             var settings = GetAppConfigurationSection();
-            
             HotelManagementDependencies(services, settings);
             ConfigureSwaggerServices(services);
             ConfigureSingletonServices(services);
             ConfigureTransientServices(services);
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
         }
 
         private void HotelManagementDependencies(IServiceCollection services, AppSettings settings)
@@ -105,7 +99,10 @@ namespace Agoda.HotelManagement.Api
             });
         }
 
-        private AppSettings GetAppConfigurationSection() => Configuration.GetSection("AppSettings").Get<AppSettings>();
+        private AppSettings GetAppConfigurationSection()
+        {
+            return Configuration.GetSection("AppSettings").Get<AppSettings>();
+        }
 
         private void ConfigureSingletonServices(IServiceCollection services)
         {
@@ -115,11 +112,12 @@ namespace Agoda.HotelManagement.Api
         private void ConfigureTransientServices(IServiceCollection services)
         {
             services.AddTransient(typeof(IValidator), typeof(PayloadValidator));
-            services.AddTransient(typeof(IUnitOfWork), typeof(UnitOfWork));
+            services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient(typeof(IHotelManagementRepository), typeof(HotelManagementRepository));
             services.AddTransient(typeof(IHotelService), typeof(HotelService));
             services.AddTransient(typeof(IHotelManager), typeof(HotelManager));
         }
+
     }
 }

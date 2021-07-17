@@ -112,7 +112,7 @@ namespace Agoda.HotelManagement.Api
         private void ConfigureTransientServices(IServiceCollection services)
         {
             services.AddTransient(typeof(IValidator), typeof(PayloadValidator));
-            services.AddTransient(typeof(IUnitOfWork), typeof(UnitOfWork));
+            services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient(typeof(IHotelManagementRepository), typeof(HotelManagementRepository));
             services.AddTransient(typeof(IHotelService), typeof(HotelService));

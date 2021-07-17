@@ -23,13 +23,6 @@ namespace Agoda.HotelManagement.Api
 
             // Start the application
             webHost.Run();
-
-
-            //CreateHostBuilder(args)
-            //    .Build()
-            //    .MigrateDatabase()
-            //    .Seed
-            //    .Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -47,7 +40,6 @@ namespace Agoda.HotelManagement.Api
             config.GetSection("AppSettings").Bind(appSettings);
 
             var store = (IRateLimitStore<RateLimitPolicy>)services.GetService(typeof(IRateLimitStore<RateLimitPolicy>));
-
             foreach (var rule in appSettings.RateLimiting.Rules)
             {
                 store.SaveAsync(Templates.POLICY_ID_FORMAT(rule.Endpoint, "::1"), new RateLimitPolicy

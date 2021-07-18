@@ -3,6 +3,7 @@ using Agoda.HotelManagement.Domain.Interfaces;
 using Agoda.HotelManagement.UnitTest.Helpers;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Agoda.HotelManagement.UnitTest.Domain
@@ -18,34 +19,34 @@ namespace Agoda.HotelManagement.UnitTest.Domain
         }
 
         [Fact]
-        public void ShouldReturnEmptyListByCity()
+        public async Task ShouldReturnEmptyListByCity()
         {
             var _hotelManager = _serviceProvider.GetService<IHotelManager>();
-            var response = _hotelManager.GetByCity("Hasan", "ASC");
+            var response = await _hotelManager.GetByCity("Hasan", "ASC");
             Assert.True(response.Count == 0);
         }
 
         [Fact]
-        public void ShouldReturnListOfHotelsByCity()
+        public async Task ShouldReturnListOfHotelsByCity()
         {
             var _hotelManager = _serviceProvider.GetService<IHotelManager>();
-            var response = _hotelManager.GetByCity("Bangkok","ASC");
+            var response = await _hotelManager.GetByCity("Bangkok","ASC");
             Assert.True(response.Count > 0);
         }
 
         [Fact]
-        public void ShouldReturnEmptyListByRoomType()
+        public async Task ShouldReturnEmptyListByRoomType()
         {
             var _hotelManager = _serviceProvider.GetService<IHotelManager>();
-            var response = _hotelManager.GetByRoom("Comfortable", "ASC");
+            var response = await _hotelManager.GetByRoom("Comfortable", "ASC");
             Assert.True(response.Count == 0);
         }
 
         [Fact]
-        public void ShouldReturnListOfHotelsByRoomType()
+        public async Task ShouldReturnListOfHotelsByRoomType()
         {
             var _hotelManager = _serviceProvider.GetService<IHotelManager>();
-            var response = _hotelManager.GetByRoom("Superior", "ASC");
+            var response = await _hotelManager.GetByRoom("Superior", "ASC");
             Assert.True(response.Count > 0);
         }
     }

@@ -1,9 +1,7 @@
 ﻿using Agoda.HotelManagement.Entities;
 using Agoda.HotelManagement.Infrastructure.Base;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace Agoda.HotelManagement.Infrastructure.Domain
 {
@@ -15,15 +13,15 @@ namespace Agoda.HotelManagement.Infrastructure.Domain
             _repository = repository;
         }
 
-        public IQueryable<Hotel> GetByCity(string name, string sortByPrice)
+        public async Task<IQueryable<Hotel>> GetByCity(string name)
         {
-            var result = _repository.Get(c => c.City == name);
+            var result = await _repository.Get(c => c.City == name);
             return result;
         }
 
-        public IQueryable<Hotel> GetByRoom(string type, string sortByPrice)
+        public async Task<IQueryable<Hotel>> GetByRoom(string type)
         {
-            var result = _repository.Get(c => c.Room == type);
+            var result = await _repository.Get(c => c.Room == type);
             return result;
         }
     }

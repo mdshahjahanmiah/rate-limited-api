@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Agoda.HotelManagement.Infrastructure.Base
 {
@@ -15,14 +16,14 @@ namespace Agoda.HotelManagement.Infrastructure.Base
             _unitOfWork = unitOfWork;
         }
         
-        public IQueryable<T> Get()
+        public async Task<IQueryable<T>> Get()
         {
-            return _unitOfWork.QueriesContext.Set<T>().AsQueryable<T>();
+            return await Task.Run(() => _unitOfWork.QueriesContext.Set<T>().AsQueryable<T>());
         }
 
-        public IQueryable<T> Get(Expression<Func<T, bool>> predicate)
+        public async Task<IQueryable<T>> Get(Expression<Func<T, bool>> predicate)
         {
-            return _unitOfWork.QueriesContext.Set<T>().Where(predicate).AsQueryable<T>();
+            return await Task.Run(() => _unitOfWork.QueriesContext.Set<T>().Where(predicate).AsQueryable<T>());
         }
     }
 }

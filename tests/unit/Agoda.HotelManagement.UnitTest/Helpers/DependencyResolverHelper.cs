@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,7 +10,10 @@ namespace Agoda.HotelManagement.UnitTest.Helpers
     public class DependencyResolverHelper
     {
         private readonly IWebHost _webHost;
-        public DependencyResolverHelper(IWebHost WebHost) => _webHost = WebHost;
+        public DependencyResolverHelper(IWebHost WebHost)
+        {
+            _webHost = WebHost;
+        }
 
         public T GetService<T>()
         {
@@ -20,9 +24,9 @@ namespace Agoda.HotelManagement.UnitTest.Helpers
                 var scopedService = services.GetRequiredService<T>();
                 return scopedService;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
     }

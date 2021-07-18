@@ -33,11 +33,12 @@ namespace Agoda.RateLimiter.Filters
             var path = context.HttpContext.Request.Path.Value;
             int lastSlash = path.LastIndexOf('/');
             path = (lastSlash > -1) ? path.Substring(0, lastSlash) : path;
-            
+
+            _logger.LogInformation("[Rate Limiter][Request Path :" + context.HttpContext.Request.Path + "]");
             var ratelimitResponse = _processor.ProcessAsync(path, remoteIpAddress, cancellationToken).GetAwaiter().GetResult();
             if (!ratelimitResponse.IsWithinRateLimit)
             {
-                _logger.LogInformation($"Rate limit exceeded for endpoint '{context.HttpContext.Request.Path}', Requester IP: {remoteIpAddress}.");
+                _logger.LogWarning($"Rate limit exceeded for endpoint '{context.HttpContext.Request.Path}', Requester IP: {remoteIpAddress}.");
                 context.Result = new ObjectResult($"Rate limit exceeded. Try again in #{ratelimitResponse.WaitingPeriod} seconds.")
                 {
                     StatusCode = (int?)HttpStatusCode.TooManyRequests

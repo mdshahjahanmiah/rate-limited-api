@@ -3,13 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Agoda.HotelManagement.Infrastructure.Domain
 {
     public interface IHotelManagementRepository
     {
-        IQueryable<Hotel> GetByCity(string name, string sortByPrice);
+        Task<IQueryable<Hotel>> GetByCity(string name);
 
-        IQueryable<Hotel> GetByRoom(string type, string sortByPrice);
+        Task<IQueryable<Hotel>> GetByRoom(string type);
     }
 }

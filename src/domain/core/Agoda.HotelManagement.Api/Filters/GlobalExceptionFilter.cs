@@ -2,16 +2,20 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 
 namespace Agoda.HotelManagement.Api.Filters
 {
     public class GlobalExceptionFilter : ExceptionFilterAttribute
     {
+        private ILogger<GlobalExceptionFilter> _logger;
+        public GlobalExceptionFilter(ILogger<GlobalExceptionFilter> logger) 
+        {
+            _logger = logger;
+        }
         public override void OnException(ExceptionContext context)
         {
             var exceptionType = context.Exception.GetType();
@@ -48,6 +52,8 @@ namespace Agoda.HotelManagement.Api.Filters
 
             context.HttpContext.Response.StatusCode = (int)statusCode;
             context.Result = new JsonResult(error);
+            _logger.LogError("[Global Exception Filter][Error :" + JsonConvert.SerializeObject(context.Result));
+
         }
     }
 }

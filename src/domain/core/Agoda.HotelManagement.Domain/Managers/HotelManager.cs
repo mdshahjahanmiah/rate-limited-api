@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using Agoda.HotelManagement.Common.Enums;
+using System.Threading.Tasks;
 
 namespace Agoda.HotelManagement.Domain.Managers
 {
@@ -16,9 +17,9 @@ namespace Agoda.HotelManagement.Domain.Managers
         {
             _hotelService = hotelService;
         }
-        public List<Hotel> GetByCity(string name, string sortByPrice)
+        public async Task<List<Hotel>> GetByCity(string name, string sortByPrice)
         {
-            var result = _hotelService.GetByCity(name, sortByPrice);
+            var result = await _hotelService.GetByCity(name);
             if (result == null) return new List<Hotel>();
 
             if (!string.IsNullOrEmpty(sortByPrice)) result = result.OrderByWithDirection(x => x.Price, SortType.IsDescending(sortByPrice));
@@ -26,9 +27,9 @@ namespace Agoda.HotelManagement.Domain.Managers
 
         }
 
-        public List<Hotel> GetByRoom(string type, string sortByPrice)
+        public async Task<List<Hotel>> GetByRoom(string type, string sortByPrice)
         {
-            var result = _hotelService.GetByRoom(type, sortByPrice);
+            var result = await _hotelService.GetByRoom(type);
             if (result == null) return new List<Hotel>();
 
             if (!string.IsNullOrEmpty(sortByPrice)) result = result.OrderByWithDirection(x => x.Price, SortType.IsDescending(sortByPrice));

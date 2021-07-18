@@ -15,7 +15,6 @@ namespace Agoda.HotelManagement.IntegrationTest
     public class TestClientProvider
     {
         public HttpClient Client { get; private set; }
-        private static string _environmentName;
         public TestClientProvider()
         {
             var server = new TestServer(new WebHostBuilder()

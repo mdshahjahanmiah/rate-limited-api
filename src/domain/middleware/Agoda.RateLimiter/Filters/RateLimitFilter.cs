@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Net;
 
 namespace Agoda.RateLimiter.Filters
@@ -28,8 +29,7 @@ namespace Agoda.RateLimiter.Filters
         public void OnActionExecuting(ActionExecutingContext context)
         {
             var cancellationToken = context.HttpContext.RequestAborted;
-            var remoteIpAddress = context.HttpContext.Connection.RemoteIpAddress.ToString();
-
+            var remoteIpAddress = Convert.ToString(context.HttpContext.Connection.RemoteIpAddress);
             var path = context.HttpContext.Request.Path.Value;
             int lastSlash = path.LastIndexOf('/');
             path = (lastSlash > -1) ? path.Substring(0, lastSlash) : path;

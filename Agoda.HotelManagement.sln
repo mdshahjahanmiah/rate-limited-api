@@ -37,7 +37,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agoda.HotelManagement.Domai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agoda.HotelManagement.Entities", "src\domain\core\Agoda.HotelManagement.Entities\Agoda.HotelManagement.Entities.csproj", "{99A4C3EB-BF5B-4227-822B-834485C93664}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agoda.HotelManagement.DataObjects", "src\domain\common\Agoda.HotelManagement.DataObjects\Agoda.HotelManagement.DataObjects.csproj", "{FE1B707C-A4EC-4CCF-AFE0-EBF3ABB8D206}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agoda.HotelManagement.DataObjects", "src\domain\common\Agoda.HotelManagement.DataObjects\Agoda.HotelManagement.DataObjects.csproj", "{FE1B707C-A4EC-4CCF-AFE0-EBF3ABB8D206}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agoda.HotelManagement.IntegrationTest", "tests\integration\Agoda.HotelManagement.IntegrationTest\Agoda.HotelManagement.IntegrationTest.csproj", "{5768CE67-9334-49EB-B744-2B7FE60B1003}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{FE1B707C-A4EC-4CCF-AFE0-EBF3ABB8D206}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE1B707C-A4EC-4CCF-AFE0-EBF3ABB8D206}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE1B707C-A4EC-4CCF-AFE0-EBF3ABB8D206}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5768CE67-9334-49EB-B744-2B7FE60B1003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5768CE67-9334-49EB-B744-2B7FE60B1003}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5768CE67-9334-49EB-B744-2B7FE60B1003}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5768CE67-9334-49EB-B744-2B7FE60B1003}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,6 +108,7 @@ Global
 		{71CF1242-9EF9-4A1F-A1B5-88B7C7A4ED21} = {12EE8ED5-689C-4BDD-887F-2D564B8D04BF}
 		{99A4C3EB-BF5B-4227-822B-834485C93664} = {12EE8ED5-689C-4BDD-887F-2D564B8D04BF}
 		{FE1B707C-A4EC-4CCF-AFE0-EBF3ABB8D206} = {BDAA00E1-5754-4249-BEA2-B599E387E464}
+		{5768CE67-9334-49EB-B744-2B7FE60B1003} = {22131201-CE58-4CCA-8C6F-A0CA3ABCE8C1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E3554235-78CF-4902-9BE1-32FF3D7C29D4}

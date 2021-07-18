@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\domain\common\Agoda.HotelManagement.DataObjects\Agoda.HotelManagement.DataObjects.csproj" />
     <ProjectReference Include="..\..\domain\core\Agoda.HotelManagement.Entities\Agoda.HotelManagement.Entities.csproj" />
   </ItemGroup>
 

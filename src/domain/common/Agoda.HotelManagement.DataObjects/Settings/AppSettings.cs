@@ -22,17 +22,12 @@ namespace Agoda.HotelManagement.DataObjects.Settings
 
     public class RateLimiting 
     {
+        public Rule Default { get; set; }
         public List<Rule> Rules { get; set; }
     }
 
     public class Rule 
     {
-        public Rule() 
-        {
-            Endpoint = string.Empty;
-            Period = 10;
-            Limit = 50;
-        }
         public string Endpoint { get; set; }
         public int Period { get; set; }
         public int Limit { get; set; }

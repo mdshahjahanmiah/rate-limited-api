@@ -4,9 +4,7 @@ using Agoda.HotelManagement.Infrastructure.Base;
 using Agoda.HotelManagement.UnitTest.Helpers;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Agoda.HotelManagement.UnitTest.Repository
@@ -22,10 +20,10 @@ namespace Agoda.HotelManagement.UnitTest.Repository
         }
 
         [Fact]
-        public void ShouldReturnListHotels()
+        public async Task ShouldReturnListHotels()
         {
             var _repository = _serviceProvider.GetService<IRepository<Hotel>>();
-            var response = _repository.Get();
+            var response = await _repository.Get();
 
             Assert.NotEmpty(response);
         }

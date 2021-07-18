@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Agoda.HotelManagement.UnitTest.Domain
@@ -21,19 +22,19 @@ namespace Agoda.HotelManagement.UnitTest.Domain
         }
 
         [Fact]
-        public void ShouldReturnEmptyListOfHotelsByCity()
+        public async Task ShouldReturnEmptyListOfHotelsByCity()
         {
             var _hotelService = _serviceProvider.GetService<IHotelService>();
-            var response = _hotelService.GetByCity("Hasan", null);
+            var response = await _hotelService.GetByCity("Hasan");
 
             Assert.Empty(response);
         }
 
         [Fact]
-        public void ShouldReturnEmptyListOfHotelsByRoom()
+        public async Task ShouldReturnEmptyListOfHotelsByRoom()
         {
             var _hotelService = _serviceProvider.GetService<IHotelService>();
-            var response = _hotelService.GetByRoom("Hasan", null);
+            var response = await _hotelService.GetByRoom("Hasan");
 
             Assert.Empty(response);
         }

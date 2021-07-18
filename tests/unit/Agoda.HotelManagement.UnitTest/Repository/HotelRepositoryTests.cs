@@ -3,6 +3,7 @@ using Agoda.HotelManagement.Infrastructure.Domain;
 using Agoda.HotelManagement.UnitTest.Helpers;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Agoda.HotelManagement.UnitTest.Repository
@@ -18,19 +19,19 @@ namespace Agoda.HotelManagement.UnitTest.Repository
         }
 
         [Fact]
-        public void ShouldReturnEmptyListOfHotelsByCity()
+        public async Task ShouldReturnEmptyListOfHotelsByCity()
         {
             var _hotelRepository = _serviceProvider.GetService<IHotelManagementRepository>();
-            var response = _hotelRepository.GetByCity("Hasan", null);
+            var response = await _hotelRepository.GetByCity("Hasan");
 
             Assert.Empty(response);
         }
 
         [Fact]
-        public void ShouldReturnEmptyListOfHotelsByRoom()
+        public async Task ShouldReturnEmptyListOfHotelsByRoom()
         {
             var _hotelRepository = _serviceProvider.GetService<IHotelManagementRepository>();
-            var response = _hotelRepository.GetByRoom("Hasan", null);
+            var response = await _hotelRepository.GetByRoom("Hasan");
 
             Assert.Empty(response);
         }

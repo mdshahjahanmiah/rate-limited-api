@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Agoda.HotelManagement.Domain.Services
 {
@@ -16,14 +17,14 @@ namespace Agoda.HotelManagement.Domain.Services
             _hotelManagementRepository = hotelManagementRepository;
         }
        
-        public IQueryable<Hotel> GetByCity(string name, string sortByPrice)
+        public async Task<IQueryable<Hotel>> GetByCity(string name)
         {
-            return _hotelManagementRepository.GetByCity(name, sortByPrice);
+            return await _hotelManagementRepository.GetByCity(name);
         }
 
-        public IQueryable<Hotel> GetByRoom(string type, string sortByPrice)
+        public async Task<IQueryable<Hotel>> GetByRoom(string type)
         {
-            return _hotelManagementRepository.GetByRoom(type, sortByPrice);
+            return await _hotelManagementRepository.GetByRoom(type);
         }
 
 

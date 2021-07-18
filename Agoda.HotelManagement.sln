@@ -39,7 +39,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agoda.HotelManagement.Entit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agoda.HotelManagement.DataObjects", "src\domain\common\Agoda.HotelManagement.DataObjects\Agoda.HotelManagement.DataObjects.csproj", "{FE1B707C-A4EC-4CCF-AFE0-EBF3ABB8D206}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agoda.HotelManagement.IntegrationTest", "tests\integration\Agoda.HotelManagement.IntegrationTest\Agoda.HotelManagement.IntegrationTest.csproj", "{5768CE67-9334-49EB-B744-2B7FE60B1003}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agoda.HotelManagement.IntegrationTest", "tests\integration\Agoda.HotelManagement.IntegrationTest\Agoda.HotelManagement.IntegrationTest.csproj", "{5768CE67-9334-49EB-B744-2B7FE60B1003}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

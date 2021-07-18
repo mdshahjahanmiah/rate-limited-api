@@ -1,3 +1,4 @@
+using Agoda.HotelManagement.Api.Filters;
 using Agoda.HotelManagement.DataObjects.Settings;
 using Agoda.HotelManagement.Domain.Interfaces;
 using Agoda.HotelManagement.Domain.Managers;
@@ -13,7 +14,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Serilog;
 using System;
 
 namespace Agoda.HotelManagement.Api
@@ -38,6 +41,7 @@ namespace Agoda.HotelManagement.Api
             HotelManagementDependencies(services, settings);
             ConfigureSwaggerServices(services);
             ConfigureSingletonServices(services);
+            ConfigureScopedServices(services);
             ConfigureTransientServices(services);
         }
 
@@ -57,8 +61,9 @@ namespace Agoda.HotelManagement.Api
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddSerilog();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -112,11 +117,15 @@ namespace Agoda.HotelManagement.Api
         private void ConfigureTransientServices(IServiceCollection services)
         {
             services.AddTransient(typeof(IValidator), typeof(PayloadValidator));
-            services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
+            services.AddTransient(typeof(IUnitOfWork), typeof(UnitOfWork));
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient(typeof(IHotelManagementRepository), typeof(HotelManagementRepository));
             services.AddTransient(typeof(IHotelService), typeof(HotelService));
             services.AddTransient(typeof(IHotelManager), typeof(HotelManager));
+        }
+        private void ConfigureScopedServices(IServiceCollection services)
+        {
+            services.AddScoped<GlobalExceptionFilter>();
         }
 
     }

@@ -6,23 +6,43 @@ using Agoda.RateLimiter.Store;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using Serilog;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Agoda.HotelManagement.Api
 {
     public class Program
     {
         public IConfiguration Configuration { get; }
+        private static string _environmentName;
         public static void Main(string[] args)
         {
-            IHost webHost = CreateHostBuilder(args).Build().MigrateDatabase();
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .AddJsonFile($"appsettings.{_environmentName}.json", optional: true, reloadOnChange: true)
+                .Build();
+            Log.Logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(configuration)
+                .CreateLogger();
 
-            // Seed initial test data
-            Seed(webHost.Services);
+            try 
+            {
+                IHost webHost = CreateHostBuilder(args).Build().MigrateDatabase();
 
-            // Start the application
-            webHost.Run();
+                // Seed initial test data
+                Seed(webHost.Services);
+
+                // Start the application
+                webHost.Run();
+            }
+            catch (Exception ex)
+            {
+                Log.Logger.Fatal("Error during application run : " + ex);
+                return;
+            }
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

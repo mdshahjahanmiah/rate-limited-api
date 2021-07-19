@@ -86,6 +86,14 @@ services:
             ACCEPT_EULA: "Y"
 ```
 
+## Running the App
+We are ready to run the application. Please make sure your docker is running.Go to your favourite **Cmd/Terminal/iTerm** and run below command.
+
+```
+$ docker-compose build
+```
+
+
 ## Considerations
 API (Hotel Management System)
 * "/api/v1/Hotel/city/{name}",that returns all the hotels belonging to a specific city.

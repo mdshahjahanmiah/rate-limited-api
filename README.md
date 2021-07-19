@@ -86,7 +86,7 @@ services:
             ACCEPT_EULA: "Y"
 ```
 
-## Running the App
+## Running the API
 We are ready to run the application. Please make sure your docker is running.Go to your favourite **Cmd/Terminal/iTerm** and run below command.
 
 ```
@@ -103,7 +103,15 @@ rate-limited-api
 * Sometimes images are created under Containers but need to run by manually. If you found any of the image/both is/are not running, then run manually.
 * After running properly, Seed data will be inserted to the mentioned database `hoteldb` under `Hotel` Table
  
+## Testing the API
+If everything goes well then we are ready to test API. As ealier we set application port 8000, we will be able to run now - 
+```
+http://localhost:8000/
 
+$ CITY : http://localhost:8000/api/v1/Hotel/city/Bangkok
+$ ROOM : http://localhost:8000/api/v1/Hotel/room/Deluxe
+
+```
 
 ## Considerations
 API (Hotel Management System)

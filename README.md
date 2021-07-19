@@ -5,7 +5,7 @@ Rate-limited API is an **Agoda's** rate limiting solution and that can use any p
 
 [![License: MIT](https://img.shields.io/github/license/HasanShahjahan/rate-limited-api.svg)](https://opensource.org/licenses/MIT)
 
-**Documentation**
+## Documentation
 ## Project Structure
 There are following three projects:
 * **API : Rate-limited API**- Rate-limited API (Hotel Management System) is implemented by rate limiter to make decision whether request will be processed or not (Based on enpoind wise configuration).

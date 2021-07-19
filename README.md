@@ -13,13 +13,14 @@ There are following three projects:
 * **Tests : Unit & Integration** - This is the test project for all components.
 
 ## Things you need
-* **.Net Core 3.1, C#**
+* **.Net Core 3.1, C#, SQL Server**
 * Install Docker
 * Clone **rate-limited-api** repository : git clone **https://github.com/HasanShahjahan/rate-limited-api.git**
-* After cloning the appsettings.json, docker file and docker compose yml will be in root directory of the cloned project.
+* After cloning, the appsettings.json, docker file and docker compose yml file will be in root directory of the cloned project.
 
 ## Setting the configuration
-To ses the log level wise log, please specify the **log level** and  **path format** `appsettings.json`
+## Logging
+To see the log level wise log, please specify the **log level** and  **path format** `appsettings.json`
 ```
 "Serilog": {
     "MinimumLevel": "Debug",
@@ -33,6 +34,39 @@ To ses the log level wise log, please specify the **log level** and  **path form
       }
     ]
   }
+```
+## Connection String
+To connect with Sql Server database, please specify your connection string. If nothing is changed then it will be created by below credentials. 
+
+```
+"ConnectionStrings": {
+      "SqlServer": {
+        "Queries": "Server=db;Database=master;User=sa;Password=Your_password123;"
+      }
+    }
+    
+```
+## Rate Limiting
+Configurable rate limiting policy per endpoint.Fallback to a default 50 requests every 10 seconds if no configuration is provided (Configurable).
+```
+"RateLimiting": {
+      "Default": {
+        "Period": 10,
+        "Limit": 50
+      },
+      "Rules": [
+        {
+          "Endpoint": "/api/v1/Hotel/city",
+          "Period": 5,
+          "Limit": 10
+        },
+        {
+          "Endpoint": "/api/v1/Hotel/room",
+          "Period": 10,
+          "Limit": 100
+        }
+      ]
+    }
 ```
 
 ## Considerations

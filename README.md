@@ -19,10 +19,11 @@ There are following three projects:
 * Both the endpoints can have an optional request to sort the hotels by price (ASC or DESC).
 
 **Middleware (Rate Limiter) **
-* Configurable rate limiting policy per endpoint per client
-* Allows having multiple rules per endpoint
-* Applies individual locks to prevent concurrent access by multiple threads 
-* Sliding window technique is used for limiting requests
+* Configurable rate limiting policy per endpoint per client.
+* Fallback to a default 50 requests every 10 seconds if no configuration is provided (Configurable).
+* If the rate gets higher than the threshold on an endpoint, the API should stop responding waiting threshold/seconds on that endpoint ONLY, before allowing other requests.
+* Applies individual locks to prevent concurrent access by multiple threads. 
+* Sliding window algorithm/technique is used for limiting requests.
 
 **Tests (Unit & Integration) **
 * Configurable rate limiting policy per endpoint per client

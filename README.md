@@ -13,12 +13,12 @@ There are following three projects:
 * **Tests : Unit & Integration** - This is the test project for all components.
 
 ## Considerations
-**API (Hotel Management System) **
+*API (Hotel Management System)
 * "/api/v1/Hotel/city/{name}",that returns all the hotels belonging to a specific city.
 * "/api/v1/Hotel/room/{type}", that returns all the hotels that have the requested.
 * Both the endpoints can have an optional request to sort the hotels by price (ASC or DESC).
 
-**Middleware (Rate Limiter) **
+*Middleware (Rate Limiter)
 * Configurable rate limiting policy per endpoint per client.
 * Support multiple endpoints in future.
 * Fallback to a default 50 requests every 10 seconds if no configuration is provided (Configurable).
@@ -26,7 +26,7 @@ There are following three projects:
 * Applies individual locks to prevent concurrent access by multiple threads. 
 * Sliding window algorithm/technique is used for limiting requests.
 
-**Tests (Unit & Integration) **
+*Tests (Unit & Integration)
 * Unit test for managers, services, repositories, validator, rate limiters using Moq framework.
 * Integration test that calls all API's using HTTP (Test Server).
 

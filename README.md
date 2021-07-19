@@ -14,7 +14,7 @@ There are following three projects:
 
 ## Things you need
 * **.Net Core 3.1, C#, SQL Server**
-* Install Docker
+* Install and Run Docker
 * Clone **rate-limited-api** repository : git clone **https://github.com/HasanShahjahan/rate-limited-api.git**
 * After cloning, the appsettings.json, docker file and docker compose yml file will be in root directory of the cloned project.
 
@@ -67,6 +67,23 @@ Configurable rate limiting policy per endpoint.Fallback to a default 50 requests
         }
       ]
     }
+```
+## Docker Compose Yml
+Below docker compose configuration for web and dependable databse based on database connection string of application settings.
+```
+version: "3.9"
+services:
+    web:
+        build: .
+        ports:
+            - "8000:80"
+        depends_on:
+            - db
+    db:
+        image: "mcr.microsoft.com/mssql/server"
+        environment:
+            SA_PASSWORD: "Your_password123"
+            ACCEPT_EULA: "Y"
 ```
 
 ## Considerations

@@ -12,6 +12,29 @@ There are following three projects:
 * **Middleware : Rate Limiter** - Rate limiter is the main library containing custom action filter to apply rate limits on API endpoints.
 * **Tests : Unit & Integration** - This is the test project for all components.
 
+## Things you need
+* **.Net Core 3.1, C#**
+* Install Docker
+* Clone **rate-limited-api** repository : git clone **https://github.com/HasanShahjahan/rate-limited-api.git**
+* After cloning the appsettings.json, docker file and docker compose yml will be in root directory of the cloned project.
+
+## Setting the configuration
+To ses the log level wise log, please specify the **log level** and  **path format** `appsettings.json`
+```
+"Serilog": {
+    "MinimumLevel": "Debug",
+    "WriteTo": [
+      {
+        "Name": "RollingFile",
+        "Args": {
+          "pathFormat": "C:\\Agoda\\HotelManagement-{Date}.txt",
+          "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level}] {Message}{NewLine}{Exception}"
+        }
+      }
+    ]
+  }
+```
+
 ## Considerations
 API (Hotel Management System)
 * "/api/v1/Hotel/city/{name}",that returns all the hotels belonging to a specific city.

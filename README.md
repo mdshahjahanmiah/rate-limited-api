@@ -91,7 +91,18 @@ We are ready to run the application. Please make sure your docker is running.Go 
 
 ```
 $ docker-compose build
+$ docker-compose up
 ```
+
+Open your docker container and make sure below docker images are running under **Containers/Apps**
+```
+rate-limited-api
+   rate-limited-api_db_1
+   rate-limited-api_web_1
+```
+* Sometimes images are created under Containers but need to run by manually. If you found any of the image/both is/are not running, then run manually.
+* After running properly, Seed data will be inserted to the mentioned database `hoteldb` under `Hotel` Table
+ 
 
 
 ## Considerations

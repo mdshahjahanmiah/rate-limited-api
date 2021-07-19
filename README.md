@@ -104,12 +104,16 @@ rate-limited-api
 * After running properly, Seed data will be inserted to the mentioned database `hoteldb` under `Hotel` Table
  
 ## Testing the API
-If everything goes well then we are ready to test API. As ealier we set application port 8000, we will be able to run now - 
+If everything goes well then we are ready to test API. As ealier we set application port 8000, we will be able to run by - 
 ```
+Postman
 http://localhost:8000/
 
-$ CITY : http://localhost:8000/api/v1/Hotel/city/Bangkok
-$ ROOM : http://localhost:8000/api/v1/Hotel/room/Deluxe
+$ GET : http://localhost:8000/api/v1/Hotel/city/Bangkok
+$ GET : http://localhost:8000/api/v1/Hotel/room/Deluxe
+
+Swagger
+$ http://localhost:8000/swagger/index.html
 
 ```
 

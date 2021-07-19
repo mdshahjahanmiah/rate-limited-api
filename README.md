@@ -13,18 +13,18 @@ There are following three projects:
 * **Tests : Unit & Integration** - This is the test project for all components.
 
 ## Considerations
-* **API (Hotel Management System) **
-* **/api/v1/Hotel/city/{name}** , that returns all the hotels belonging to a specific city.
-* **/api/v1/Hotel/room/{type}**, that returns all the hotels that have the requested.
+**API (Hotel Management System) **
+* "/api/v1/Hotel/city/{name}",that returns all the hotels belonging to a specific city.
+* "/api/v1/Hotel/room/{type}", that returns all the hotels that have the requested.
 * Both the endpoints can have an optional request to sort the hotels by price (ASC or DESC).
 
-* **Middleware (Rate Limiter) **
+**Middleware (Rate Limiter) **
 * Configurable rate limiting policy per endpoint per client
 * Allows having multiple rules per endpoint
 * Applies individual locks to prevent concurrent access by multiple threads 
 * Sliding window technique is used for limiting requests
 
-* **Tests (Unit & Integration) **
+**Tests (Unit & Integration) **
 * Configurable rate limiting policy per endpoint per client
 * Allows having multiple rules per endpoint
 * Applies individual locks to prevent concurrent access by multiple threads 

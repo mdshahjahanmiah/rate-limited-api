@@ -19,7 +19,7 @@ namespace Agoda.HotelManagement.Domain.Mappers
         }
     }
 
-    public static class Test
+    public static class OrderDirection
     {
         public static IOrderedQueryable<TSource> OrderByWithDirection<TSource, TKey>(this IQueryable<TSource> source, Expression<Func<TSource, TKey>> keySelector, bool descending)
         {
